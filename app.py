@@ -17,8 +17,8 @@ def start():
                 id = dms[i]['id']
 
                 if len(message) is not 0 and len(message) < 280:
-                    if "[sangsurya]" in message:
-                        # message = message.replace("[sangsurya]", "")
+                    if "[gkb]" in message:
+                        # message = message.replace("[gkb]", "")
                         if len(message) is not 0:
                             if dms[i]['media'] is None:
                                 print("DM will be posted")
