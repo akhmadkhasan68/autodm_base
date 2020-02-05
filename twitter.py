@@ -56,9 +56,8 @@ class Twitter:
         try:
             self.api.destroy_direct_message(id)
             time.sleep(40)
-        except Exception as ex:
-            print(ex)
-            time.sleep(40)
+        except tweepy.TweepError as e:
+            print(e.reason)
             pass
 
 
