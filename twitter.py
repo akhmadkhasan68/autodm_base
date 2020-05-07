@@ -13,7 +13,6 @@ class Twitter:
         self.inits.set_access_token(constants.ACCESS_KEY, constants.ACCESS_SECRET)
         self.api = tweepy.API(self.inits)
 
-
     def read_dm(self):
         print("Get direct messages...")
         dms = list()
@@ -60,10 +59,17 @@ class Twitter:
             print(e.reason)
             pass
 
+    def send_dm(self, tweet_id, sender_id):
+        api = self.api
+        print("get tweet id: " + str(tweet_id))
+        url = f"https://twitter.com/UMMfess/status/" + str(tweet_id)
+        # send message dm
+        api.send_direct_message(sender_id, "Hore! Tweet anda berhasil dikirim " + url)
 
-    def post_tweet(self, tweet):
+    def post_tweet(self, tweet, sender_id):
         try:
-            self.api.update_status(tweet)
+            status = self.api.update_status(tweet)
+            self.send_dm(status.id, sender_id)
         except tweepy.TweepError as e:
             print(e.reason)
             pass

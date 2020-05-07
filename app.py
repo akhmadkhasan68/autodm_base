@@ -16,13 +16,16 @@ def start():
                 sender_id = dms[i]['sender_id']
                 id = dms[i]['id']
 
+                key = ["[gkb]", "[Gkb]", "[GKB]"]
+
                 if len(message) is not 0 and len(message) < 280:
-                    if "[gkb]" in message:
+                    # if "[gkb]" in message:
+                    if any(x in message for x in key):
                         # message = message.replace("[gkb]", "")
                         if len(message) is not 0:
                             if dms[i]['media'] is None:
                                 print("DM will be posted")
-                                tw.post_tweet(message)
+                                tw.post_tweet(message, sender_id)
                                 tw.delete_dm(id)
                             else:
                                 print("DM will be posted with media")
