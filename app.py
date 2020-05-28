@@ -16,7 +16,7 @@ def start():
                 sender_id = dms[i]['sender_id']
                 id = dms[i]['id']
 
-                key = ["[gkb]", "[Gkb]", "[GKB]"]
+                key = ["[gkb]", "[Gkb]", "[GKB]", "[gKb]", "[gkB]", "[GKb]", "[GkB]", "[gKB]"]
 
                 if len(message) is not 0 and len(message) < 280:
                     # if "[gkb]" in message:
